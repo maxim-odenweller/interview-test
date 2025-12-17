@@ -4,7 +4,7 @@
 
 ### Run app
 
-`docker compose up backend -d && docker compose up mcp-server`
+`docker compose up --build`
 
 ### MCP inspector
 
