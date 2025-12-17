@@ -1,0 +1,7 @@
+{
+  "watch": ["index.js", "tools"],
+  "ext": "js",
+  "ignore": ["node_modules"],
+  "delay": 500
+}
+

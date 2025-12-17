@@ -1,0 +1,33 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  mcp-server:
+    build: ./mcp-server
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./mcp-server:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=http://backend:3000
+      - PORT=3001
+      - NODE_ENV=development
+    command: npm run dev
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
