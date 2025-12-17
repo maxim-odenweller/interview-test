@@ -3,8 +3,21 @@ import express from 'express'
 const app = express()
 const PORT = process.env.PORT || 3000
 
-let users = {}
-let nextId = 1
+let users = {
+  '1': {
+    id: '1',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    createdAt: new Date().toISOString()
+  },
+  '2': {
+    id: '2',
+    name: 'Jane Smith',
+    email: 'jane.smith@example.com',
+    createdAt: new Date().toISOString()
+  }
+}
+let nextId = 3
 
 app.use(express.json())
 
