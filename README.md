@@ -8,7 +8,7 @@
 
 ### MCP inspector
 
-`npx @modelcontextprotocol/inspector`
+`npx @modelcontextprotocol/inspector@0.18.0`
 
 - Transport Type -> Streamable HTTP
 - URL -> [http://localhost:3001/mcp](http://localhost:3001/mcp)
